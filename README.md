@@ -24,5 +24,5 @@ View [plugins/BeatStream/plugin.py](./plugins/BeatStream/plugin.py).
 
 ## Special thanks
 - [bemaniutils](https://github.com/DragonMinded/bemaniutils) - Protocol implementation.
-- [eamuse.bsnk.me](https://eamuse.bsnk.me/) - Information for implementation.
+- [eamuse.bsnk.me](https://eamuse.bsnk.me/) - Information for implementation.  
 thanks.
