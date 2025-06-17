@@ -21,3 +21,8 @@ View [plugins/BeatStream/plugin.py](./plugins/BeatStream/plugin.py).
 - [ ] Full support of BeatStream and MÚSECA
 - [ ] Create plugins other than BeatStream
 - [ ] Database support (psql/sqlite/mysql)
+
+## Special thanks
+- [bemaniutils](https://github.com/DragonMinded/bemaniutils) - Protocol implementation.
+- [eamuse.bsnk.me](https://eamuse.bsnk.me/) - Information for implementation.
+thanks.
