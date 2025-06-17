@@ -1,0 +1,2 @@
+class WrongResponse(Exception):
+    pass
