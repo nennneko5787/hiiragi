@@ -45,12 +45,12 @@ async def proxy(request: Request, path: str, f: str):
     compress = "lz77" if request.headers.get("x-compress", "none") != "none" else None
     req = protocol.decode(compress, request.headers.get("x-eamuse-info"), body)
 
-    # クエリパラメータの取得
+    # Get query parameter
     query_string = request.url.query
     if query_string:
         target_url += f"?{query_string}"
 
-    # HTTPメソッド・ヘッダー・ボディを取得して転送
+    # Proxing
     async with httpx.AsyncClient() as client:
         response = await client.request(
             method=request.method,
@@ -82,7 +82,7 @@ async def proxy(request: Request, path: str, f: str):
         packet_encoding=EAmuseProtocol.XML,
     )
 
-    # クライアントにそのまま返却
+    # return
     del headers["content-length"]
     return Response(data, headers=headers)
 
