@@ -11,6 +11,7 @@ from hiiragi.plugin import PluginManager
 async def lifespan(app: FastAPI):
     logger.info("Hiiragi is loading...")
     PluginManager.loadPlugins()
+    logger.info("Hiiragi is loaded!")
     yield
 
 

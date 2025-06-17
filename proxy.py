@@ -38,20 +38,12 @@ def modify(node: Node) -> Node:
 
 
 @app.api_route("/{path:path}", methods=["GET", "POST", "PUT", "DELETE", "PATCH"])
-async def proxy(request: Request, path: str):
+async def proxy(request: Request, path: str, f: str):
     target_url = f"{TARGET_BASE_URL}/{path}"
-    print("path:", path)
-    xeamuse_info = request.headers.get("x-eamuse-info", "")
-    print("xeamuse_info:", xeamuse_info)
     body = await request.body()
 
     compress = "lz77" if request.headers.get("x-compress", "none") != "none" else None
-    print("req:", protocol.decode(compress, xeamuse_info, body))
-
-    print(
-        "headers:",
-        {key: value for key, value in request.headers.items() if key.lower() != "host"},
-    )
+    req = protocol.decode(compress, request.headers.get("x-eamuse-info"), body)
 
     # クエリパラメータの取得
     query_string = request.url.query
@@ -72,16 +64,15 @@ async def proxy(request: Request, path: str):
         )
 
     headers = dict(response.headers)
-    print("headers:", headers)
 
     compress = "lz77" if response.headers.get("x-compress", "none") != "none" else None
     res = protocol.decode(
         compress, response.headers.get("x-eamuse-info"), response.content
     )
-    print(
-        "res:",
-        res,
-    )
+
+    with open(f"./responses/{f}.txt", "w") as fp:
+        fp.write(str(req) + "\n\n" + str(res))
+
     res = modify(res) or res
     data = protocol.encode(
         compress,
