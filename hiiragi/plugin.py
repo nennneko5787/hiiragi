@@ -43,7 +43,6 @@ class PluginManager:
     def loadPlugins(cls):
         for folder in os.listdir("./plugins/"):
             path = os.path.join("./plugins", folder)
-            # フォルダかどうかを確認
             if os.path.isdir(path):
                 pluginPath = os.path.join(path, "plugin.py")
                 if os.path.isfile(pluginPath):
