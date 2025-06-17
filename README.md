@@ -1,6 +1,6 @@
 # hiiragi
 
-> The name of the repository was derived from 柊(holly olive).
+> The name of the repository was derived from 柊<ひいらぎ>(holly olive).
 
 Re-implementation of e-amusement server.
 
