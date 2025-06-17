@@ -14,3 +14,8 @@ uvicorn main:app --host localhost --port 8083
 ## How to make plugin
 
 View [plugins/BeatStream/plugin.py](./plugins/BeatStream/plugin.py).
+
+## Todo
+- [ ] Full support of BeatStream and MÚSECA
+- [ ] Create plugins other than BeatStream
+- [ ] Database support (psql/sqlite/mysql)
